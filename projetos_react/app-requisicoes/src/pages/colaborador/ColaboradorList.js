@@ -1,4 +1,33 @@
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+
 const ColaboradorList = (props) => {
+ 
+  const operacoesBodyTemplate = (rowData) => {
+    return (
+      <div>
+        <button
+          onClick={() => props.editar(rowData._id)}
+          className="btn btn-warning btn-sm"
+        >
+          Editar
+        </button>
+        <button
+          onClick={() => props.excluir(rowData._id)}
+          className="btn btn-danger btn-sm"
+        >
+          Excluir
+        </button>
+
+        <Button icon="pi pi-times" className="p-button-rounded p-button-danger" aria-label="Excluir" onClick={() => props.excluir(rowData._id)}/>
+ 
+      </div>
+    )
+  }
+
+ 
+ 
   return (
     <div className="App">
       <h4>Listagem de Colaboradores</h4>
@@ -12,7 +41,20 @@ const ColaboradorList = (props) => {
         Inserir
       </button>
 
-      <table className="table">
+      <DataTable value={props.colaboradores} paginator responsiveLayout="scroll"  paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+        currentPageReportTemplate="Mostrando de {first} até {last} de {totalRecords}" rows={5} rowsPerPageOptions={[5,10,20,50]}
+        selectionMode="single" selection={props.colaborador} 
+        onSelectionChange={e => props.setColaborador(e.value)} dataKey="_id"
+
+      >
+      
+        <Column field="_id" header="ID" sortable filter></Column>
+        <Column field="nome" header="None" sortable filter></Column>
+        <Column field="email" header="Email" sortable filter></Column>
+        <Column header="Operações" body={operacoesBodyTemplate}></Column>
+      </DataTable>
+
+      {/*<table className="table">
         <thead>
           <tr>
             <th>ID</th>
@@ -52,7 +94,8 @@ const ColaboradorList = (props) => {
             </tr>
           )}
         </tbody>
-      </table>
+      </table> 
+          */}
     </div>
   );
 };
