@@ -13,6 +13,14 @@ function Menu () {
             label: 'Colaboradores', icon: 'pi pi-id-card',
             command: () => { navigate("/colaborador") }
         },
+        { 
+            label: 'Solicitantes', icon: 'pi pi-id-card',
+            command: () => { navigate("/solicitante") }
+        },
+        { 
+            label: 'Atividades', icon: 'pi pi-id-card',
+            command: () => { navigate("/atividade") }
+        },
     ];
     return ( <Menubar model={items} /> )
 }

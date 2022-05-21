@@ -49,7 +49,7 @@ const ColaboradorList = (props) => {
       >
       
         <Column field="_id" header="ID" sortable filter></Column>
-        <Column field="nome" header="None" sortable filter></Column>
+        <Column field="nome" header="Nome" sortable filter></Column>
         <Column field="email" header="Email" sortable filter></Column>
         <Column header="Operações" body={operacoesBodyTemplate}></Column>
       </DataTable>
