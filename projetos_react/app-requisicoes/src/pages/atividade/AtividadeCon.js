@@ -13,7 +13,7 @@ import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 
 function AtividadeCon() {
   const [atividades, setAtividades] = useState([]);
-  const initialState = {id: null, titulo: "", descricao: "", status: "", prazo: "", agendainicio:"", dataHoraTermino: "" };
+  const initialState = {id: null, titulo: "", descricao: "", status: "", prazo: "", agendaInicio:"", dataHoraTermino: "" };
   const [atividade, setAtividade] = useState(initialState);
   const [editando, setEditando] = useState(false);
   const toastRef = useRef();
